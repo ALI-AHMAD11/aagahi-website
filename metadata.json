@@ -1,0 +1,6 @@
+{
+  "name": "AAGAHI - Legal Help & Rights Platform for Pakistan",
+  "description": "Comprehensive legal-help, constitutional awareness, lawyer appointments, and emergency assistance platform for Pakistan (آگاہی - آپ کا حق، آپ کی آگاہی).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
