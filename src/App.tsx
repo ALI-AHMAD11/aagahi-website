@@ -594,46 +594,43 @@ export default function App() {
               {/* CREATOR SECTION */}
               <AboutCreatorSection language={language} />
 
-              {/* =====================================================
-                  NEW COURTROOM IMAGE AT BOTTOM OF FIRST PAGE
-                  ===================================================== */}
-              <section className="relative w-full h-[420px] sm:h-[500px] overflow-hidden mt-4">
+             {/* =====================================================
+    NEW COURTROOM IMAGE AT BOTTOM OF FIRST PAGE
+    ===================================================== */}
+<section className="relative w-full h-[420px] sm:h-[500px] overflow-hidden mt-4">
 
-                {/* Attached courtroom image */}
-                <div
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{
-                    backgroundImage:
-                      "url('/courtroom-bottom.jpg')",
-                  }}
-                />
+  {/* Courtroom background image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style={{
+      backgroundImage: "url('/courtroom-bottom.jpg')",
+    }}
+  />
 
-                {/* Dark overlay */}
-                <div className="absolute inset-0 bg-slate-950/65" />
+  {/* Light dark overlay so the image remains visible */}
+  <div className="absolute inset-0 bg-slate-950/25" />
 
-                {/* Smooth dark gradient */}
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/25 to-slate-950" />
+  {/* Smooth gradient */}
+  <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-transparent to-slate-950/60" />
 
-                {/* Text over image */}
-                <div className="relative z-10 h-full flex items-center justify-center px-6">
-                  <div className="text-center max-w-3xl">
+  {/* Text over image */}
+  <div className="relative z-10 h-full flex items-center justify-center px-6">
+    <div className="text-center max-w-3xl">
 
-                    <Scale className="w-10 h-10 text-amber-400 mx-auto mb-4" />
+      <Scale className="w-10 h-10 text-amber-400 mx-auto mb-4" />
 
-                    <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
-                      Justice, Rights & Awareness
-                    </h2>
+      <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+        Justice, Rights & Awareness
+      </h2>
 
-                    <p className="mt-3 text-sm sm:text-base text-slate-300">
-                      AAGAHI — Making legal rights easier to understand for every citizen.
-                    </p>
+      <p className="mt-3 text-sm sm:text-base text-slate-300">
+        AAGAHI — Making legal rights easier to understand for every citizen.
+      </p>
 
-                  </div>
-                </div>
+    </div>
+  </div>
 
-              </section>
-            </motion.div>
-          )}
+</section>
 
           {/* =====================================================
               CONSTITUTION PAGE
