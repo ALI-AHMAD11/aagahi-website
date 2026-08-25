@@ -45,19 +45,47 @@ function cleanJsonOutput(text: string): string {
 }
 
 
+// Resilient Gemini generateContent caller with retry & model fallback
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error(`${label} timed out after ${ms}ms`)), ms);
+    promise.then(
+      (val) => {
+        clearTimeout(timer);
+        resolve(val);
+      },
+      (err) => {
+        clearTimeout(timer);
+        reject(err);
+      }
+    );
+  });
+}
+
+async function generateGeminiWithFallback(
+  gemini: GoogleGenAI,
+  options: {
+    contents: any;
+    config?: any;
+  }
 ): Promise<{ text: string; modelUsed: string }> {
   // Models to attempt in priority order if one experiences high demand (503/429)
   const candidateModels = ["gemini-2.5-flash", "gemini-3.7-flash", "gemini-3.1-flash-lite"];
+  const PER_ATTEMPT_TIMEOUT_MS = 12000; // give each try 12s max before moving on
   let lastError: any = null;
 
   for (const model of candidateModels) {
     for (let attempt = 1; attempt <= 2; attempt++) {
       try {
-        const response = await gemini.models.generateContent({
-          model,
-          contents: options.contents,
-          config: options.config,
-        });
+        const response = await withTimeout(
+          gemini.models.generateContent({
+            model,
+            contents: options.contents,
+            config: options.config,
+          }),
+          PER_ATTEMPT_TIMEOUT_MS,
+          `Gemini call (${model}, attempt ${attempt})`
+        );
 
         if (response && response.text) {
           return { text: response.text, modelUsed: model };
