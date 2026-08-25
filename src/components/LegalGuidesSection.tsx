@@ -27,8 +27,6 @@ export const LegalGuidesSection: React.FC<LegalGuidesSectionProps> = ({ language
 
   const t = UI_TRANSLATIONS[language] || UI_TRANSLATIONS.en;
 
-  // Icon colors now pull from the same amber/rose/sky palette used everywhere
-  // else, sized up slightly for consistency with the card system.
   const iconMap: Record<string, React.ReactNode> = {
     ShieldAlert: <ShieldAlert className="w-5 h-5 text-rose-400" />,
     Lock: <Lock className="w-5 h-5 text-sky-400" />,
@@ -52,8 +50,7 @@ export const LegalGuidesSection: React.FC<LegalGuidesSectionProps> = ({ language
         </p>
       </div>
 
-      {/* Guide Selector Tabs — now uses the shared .card base for consistent
-          radius/padding/hover behavior with every other card on the site */}
+      {/* Guide Selector Tabs */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {STEP_BY_STEP_LEGAL_GUIDES.map((guide) => {
           const isSelected = selectedGuide.id === guide.id;
@@ -186,7 +183,7 @@ export const LegalGuidesSection: React.FC<LegalGuidesSectionProps> = ({ language
               </div>
               <div className="flex flex-wrap items-center gap-2">
                 {selectedGuide.helplines.map((hl, idx) => (
-                  
+                  <a
                     key={idx}
                     href={`tel:${hl.number}`}
                     className="px-3.5 py-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm flex items-center gap-1.5 shadow transition-colors"
