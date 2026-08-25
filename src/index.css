@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — Warm Judicial Charcoal & Cream Aesthetic */
-  --color-brand-navy: #121214;          /* Deep luxury charcoal base */
-  --color-brand-navy-light: #1c1c24;    /* Elevated stone-charcoal card background */
-  --color-brand-slate: #2c2c38;         /* Crisp, defined border contrast */
-  --color-brand-offwhite: #f4f4f5;      /* Crisp modern off-white */
-  --color-brand-gold: #e6b333;          /* Refined champagne gold */
-  --color-brand-gold-dark: #b88a14;     /* Deep warm gold hover state */
+  /* Brand palette — Crisp Modern Light Theme */
+  --color-brand-navy: #f8fafc;          /* Clean, airy light background */
+  --color-brand-navy-light: #ffffff;    /* Pure white card background */
+  --color-brand-slate: #e2e8f0;         /* Subtle, elegant border contrast */
+  --color-brand-offwhite: #0f172a;      /* Deep rich text color for high contrast */
+  --color-brand-gold: #d97706;          /* Rich professional amber/gold */
+  --color-brand-gold-dark: #b45309;     /* Deep gold hover state */
   --color-brand-emergency: #e11d48;
 
   /* Typography scale */
@@ -25,8 +25,8 @@
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     scroll-behavior: smooth;
-    background: radial-gradient(circle at 50% 0%, #1e1e28 0%, #121214 70%);
-    color: var(--color-brand-offwhite);
+    background-color: #f1f5f9;
+    color: #0f172a;
     min-height: 100vh;
   }
   h1, h2, h3,
@@ -53,85 +53,67 @@
 }
 .btn-primary {
   background-color: var(--color-brand-gold);
-  color: #121214;
+  color: #ffffff;
 }
 .btn-primary:hover {
   background-color: var(--color-brand-gold-dark);
-  color: #ffffff;
   transform: translateY(-1px);
 }
 .btn-secondary {
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: #ffffff;
   border: 1px solid var(--color-brand-slate);
-  color: var(--color-brand-offwhite);
+  color: #0f172a;
 }
 .btn-secondary:hover {
   border-color: var(--color-brand-gold);
-  background-color: rgba(230, 179, 51, 0.05);
+  color: var(--color-brand-gold);
 }
 
-/* Shared card base — distinct elevated stone-charcoal surface */
+/* Shared card base — clean white elevated surface with soft shadows */
 .card {
   border-radius: var(--radius-card);
   padding: 28px;
-  background-color: #1a1a22;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.6);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
   transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
 }
 .card:hover {
   transform: translateY(-3px);
-  border-color: rgba(230, 179, 51, 0.35); /* elegant champagne gold border on hover */
-  box-shadow: 0 18px 45px -12px rgba(230, 179, 51, 0.15);
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.1);
 }
 
 /* --- Animations --- */
 @keyframes subtle-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 179, 51, 0.4); }
-  50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(230, 179, 51, 0); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.3); }
+  50% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(217, 119, 6, 0); }
 }
 .animate-subtle-pulse { animation: subtle-pulse 3s infinite ease-in-out; }
 
 @keyframes emergency-glow {
-  0%, 100% { box-shadow: 0 0 12px rgba(225, 29, 72, 0.45), inset 0 0 12px rgba(225, 29, 72, 0.15); }
-  50% { box-shadow: 0 0 20px rgba(225, 29, 72, 0.65), inset 0 0 18px rgba(225, 29, 72, 0.3); }
+  0%, 100% { box-shadow: 0 0 12px rgba(225, 29, 72, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(225, 29, 72, 0.5); }
 }
 .animate-emergency-glow { animation: emergency-glow 2.2s infinite ease-in-out; }
 
 @keyframes float-slow {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
 }
 .animate-float { animation: float-slow 4s ease-in-out infinite; }
 
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-.animate-shimmer {
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
-  background-size: 200% 100%;
-  animation: shimmer 3s infinite;
-}
-
-@keyframes gradient-x {
-  0%, 100% { background-size: 200% 200%; background-position: left center; }
-  50% { background-size: 200% 200%; background-position: right center; }
-}
-.animate-gradient-x { animation: gradient-x 6s ease infinite; }
-
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.animate-fade-in { animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: var(--color-brand-navy); }
+::-webkit-scrollbar-track { background: #f1f5f9; }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-brand-slate);
+  background: #cbd5e1;
   border-radius: 4px;
-  border: 1px solid #121214;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--color-brand-gold); }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
