@@ -64,7 +64,7 @@ const CourtroomScrollDivider: React.FC = () => (
       whileInView={{ opacity: 1, rotate: 0, y: 0 }}
       viewport={{ once: true, amount: 0.8 }}
       transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-      className="w-9 h-9 rounded-full bg-slate-900 border border-amber-700/60 flex items-center justify-center text-amber-400 shadow-lg shadow-amber-950/40"
+      className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-amber-400 shadow-lg shadow-amber-950/40"
     >
       <Scale className="w-4 h-4" />
     </motion.div>
@@ -238,7 +238,7 @@ export default function App() {
                   transition={{ duration: 0.5 }}
                   className="text-center space-y-2 mb-8"
                 >
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-amber-700/60 text-xs text-amber-400 font-semibold">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-amber-400 font-semibold">
                     <Compass className="w-3.5 h-3.5 text-amber-300" />
                     <span>The 4 Core Pillars of AAGAHI</span>
                   </div>
@@ -266,10 +266,10 @@ export default function App() {
                       setCurrentTab("home");
                       window.scrollTo({ top: 560, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-amber-700/60 hover:border-amber-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-slate-800 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-950 border border-amber-700/50 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner">
+                      <div className="w-10 h-10 rounded-xl bg-amber-950 border border-slate-800 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner">
                         <Sparkles className="w-5 h-5" />
                       </div>
                       <div>
@@ -297,10 +297,10 @@ export default function App() {
                       setPage2SubTab("rights");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-amber-700/60 hover:border-amber-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-slate-800 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-950 border border-amber-700/50 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner">
+                      <div className="w-10 h-10 rounded-xl bg-amber-950 border border-slate-800 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner">
                         <BookOpen className="w-5 h-5" />
                       </div>
                       <div>
@@ -328,10 +328,10 @@ export default function App() {
                       setPage3SubTab("directory");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-amber-700/60 hover:border-sky-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-slate-800 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-sky-950 border border-sky-700/50 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform shadow-inner">
+                      <div className="w-10 h-10 rounded-xl bg-sky-950 border border-slate-800 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform shadow-inner">
                         <UserCheck className="w-5 h-5" />
                       </div>
                       <div>
@@ -358,10 +358,10 @@ export default function App() {
                       setCurrentTab("emergency");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-amber-700/60 hover:border-rose-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-slate-800 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-rose-950 border border-rose-700/50 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform shadow-inner">
+                      <div className="w-10 h-10 rounded-xl bg-rose-950 border border-slate-800 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform shadow-inner">
                         <ShieldAlert className="w-5 h-5" />
                       </div>
                       <div>
@@ -384,7 +384,7 @@ export default function App() {
               <CourtroomScrollDivider />
 
               {/* 3. Embedded Live Legal Problem Solver */}
-              <div id="solver-section" className="border-t border-amber-700/60 pt-8">
+              <div id="solver-section" className="border-t border-slate-800 pt-8">
                 <LegalProblemSolver
                   initialQuery={solverQuery}
                   language={language}
@@ -395,7 +395,7 @@ export default function App() {
               </div>
 
               {/* 4. How AAGAHI Works Process */}
-              <section className="bg-slate-900/80 py-16 px-4 sm:px-6 lg:px-8 border-y border-amber-700/60">
+              <section className="bg-slate-900/80 py-16 px-4 sm:px-6 lg:px-8 border-y border-slate-800">
                 <div className="max-w-6xl mx-auto space-y-12">
                   <motion.div 
                     initial={{ opacity: 0, y: 15 }}
@@ -403,7 +403,7 @@ export default function App() {
                     viewport={{ once: true }}
                     className="text-center space-y-3"
                   >
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950 border border-amber-600/40 text-xs font-semibold text-amber-300">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950 border border-slate-800 text-xs font-semibold text-amber-300">
                       <CheckCircle2 className="w-3.5 h-3.5 text-amber-300" />
                       <span>Simple & Transparent Process</span>
                     </div>
@@ -426,9 +426,9 @@ export default function App() {
                     <motion.div 
                       variants={staggerItemVariants}
                       whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-amber-700/60 space-y-3 relative group hover:border-amber-500/60 transition-colors shadow-lg"
+                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-slate-800 transition-colors shadow-lg"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-amber-700/60 shadow">
+                      <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-slate-800 shadow">
                         1
                       </div>
                       <h3 className="font-extrabold text-base text-white">{t.step1Title}</h3>
@@ -439,9 +439,9 @@ export default function App() {
                     <motion.div 
                       variants={staggerItemVariants}
                       whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-amber-700/60 space-y-3 relative group hover:border-amber-500/60 transition-colors shadow-lg"
+                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-slate-800 transition-colors shadow-lg"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-amber-700/60 shadow">
+                      <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-slate-800 shadow">
                         2
                       </div>
                       <h3 className="font-extrabold text-base text-white">{t.step2Title}</h3>
@@ -452,9 +452,9 @@ export default function App() {
                     <motion.div 
                       variants={staggerItemVariants}
                       whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-amber-700/60 space-y-3 relative group hover:border-amber-500/60 transition-colors shadow-lg"
+                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-slate-800 transition-colors shadow-lg"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-amber-700/60 shadow">
+                      <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-slate-800 shadow">
                         3
                       </div>
                       <h3 className="font-extrabold text-base text-white">{t.step3Title}</h3>
@@ -465,9 +465,9 @@ export default function App() {
                     <motion.div 
                       variants={staggerItemVariants}
                       whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-amber-700/60 space-y-3 relative group hover:border-sky-500/60 transition-colors shadow-lg"
+                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-slate-800 transition-colors shadow-lg"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-sky-950 text-sky-300 font-black text-lg flex items-center justify-center border border-sky-700/60 shadow">
+                      <div className="w-12 h-12 rounded-xl bg-sky-950 text-sky-300 font-black text-lg flex items-center justify-center border border-slate-800 shadow">
                         4
                       </div>
                       <h3 className="font-extrabold text-base text-white">{t.step4Title}</h3>
@@ -497,9 +497,9 @@ export default function App() {
               className="space-y-8 pb-16"
             >
               {/* Page Header & Sub-Tab Switcher */}
-              <div className="bg-slate-900 border-b border-amber-950/80 py-10 px-4 sm:px-6 lg:px-8">
+              <div className="bg-slate-900 border-b border-slate-800 py-10 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-6xl mx-auto space-y-6 text-center">
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950 border border-amber-500/40 text-amber-300 text-xs font-semibold">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950 border border-slate-800 text-amber-300 text-xs font-semibold">
                     <BookOpen className="w-3.5 h-3.5 text-amber-300" />
                     <span>Constitutional Literacy & Step-by-Step Guides</span>
                   </div>
@@ -511,7 +511,7 @@ export default function App() {
                   </p>
 
                   {/* Sub-Tabs Selector */}
-                  <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-950 border border-amber-700/60 shadow-xl">
+                  <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-950 border border-slate-800 shadow-xl">
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => setPage2SubTab("rights")}
@@ -587,9 +587,9 @@ export default function App() {
               className="space-y-8 pb-16"
             >
               {/* Page Header & Sub-Tab Switcher */}
-              <div className="bg-slate-900 border-b border-sky-950/80 py-10 px-4 sm:px-6 lg:px-8">
+              <div className="bg-slate-900 border-b border-slate-800 py-10 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-6xl mx-auto space-y-6 text-center">
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950 border border-sky-500/40 text-sky-300 text-xs font-semibold">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950 border border-slate-800 text-sky-300 text-xs font-semibold">
                     <UserCheck className="w-3.5 h-3.5 text-amber-300" />
                     <span>Bar Council Verified Advocates & Court FAQ</span>
                   </div>
@@ -601,7 +601,7 @@ export default function App() {
                   </p>
 
                   {/* Sub-Tabs Selector */}
-                  <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-950 border border-amber-700/60 shadow-xl">
+                  <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-950 border border-slate-800 shadow-xl">
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => setPage3SubTab("directory")}
