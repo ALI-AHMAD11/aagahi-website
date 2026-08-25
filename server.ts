@@ -44,13 +44,7 @@ function cleanJsonOutput(text: string): string {
   return cleaned.trim();
 }
 
-// Resilient Gemini generateContent caller with retry & model fallback
-async function generateGeminiWithFallback(
-  gemini: GoogleGenAI,
-  options: {
-    contents: any;
-    config?: any;
-  }
+
 ): Promise<{ text: string; modelUsed: string }> {
   // Models to attempt in priority order if one experiences high demand (503/429)
   const candidateModels = ["gemini-2.5-flash", "gemini-3.7-flash", "gemini-3.1-flash-lite"];
