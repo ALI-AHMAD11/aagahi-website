@@ -266,7 +266,7 @@ export default function App() {
                       setCurrentTab("home");
                       window.scrollTo({ top: 560, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-amber-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-950 rounded-2xl border border-slate-800 hover:border-amber-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-amber-950 border border-amber-700/50 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner">
@@ -297,7 +297,7 @@ export default function App() {
                       setPage2SubTab("rights");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-amber-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-950 rounded-2xl border border-slate-800 hover:border-amber-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-amber-950 border border-amber-700/50 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner">
@@ -328,7 +328,7 @@ export default function App() {
                       setPage3SubTab("directory");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-sky-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-950 rounded-2xl border border-slate-800 hover:border-sky-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-sky-950 border border-sky-700/50 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform shadow-inner">
@@ -358,7 +358,7 @@ export default function App() {
                       setCurrentTab("emergency");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-rose-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-950 rounded-2xl border border-slate-800 hover:border-rose-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-rose-950 border border-rose-700/50 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform shadow-inner">
@@ -754,4 +754,3 @@ export default function App() {
     </div>
   );
 }
-
