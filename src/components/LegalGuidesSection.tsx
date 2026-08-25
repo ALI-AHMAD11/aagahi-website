@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import {
-  BookOpen,
-  ShieldAlert,
-  Lock,
-  Home,
-  Briefcase,
-  CheckCircle2,
-  AlertTriangle,
-  PhoneCall,
-  ArrowRight,
-  Scale,
-  Check,
-  XCircle,
+import { 
+  BookOpen, 
+  ShieldAlert, 
+  Lock, 
+  Home, 
+  Briefcase, 
+  CheckCircle2, 
+  AlertTriangle, 
+  PhoneCall, 
+  ArrowRight, 
+  Scale, 
+  Check, 
+  XCircle, 
   Clock
 } from "lucide-react";
 import { Language, LegalGuide } from "../types";
