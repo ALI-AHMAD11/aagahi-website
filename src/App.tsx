@@ -152,7 +152,13 @@ export default function App() {
   const handleHeroSearch = (query: string) => {
     setSolverQuery(query);
     setCurrentTab("home");
-    window.scrollTo({ top: 520, behavior: "smooth" });
+
+    setTimeout(() => {
+      document.getElementById("solver-section")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 50);
   };
 
   const handleOpenLawyerWithCategory = (category: string) => {
@@ -179,7 +185,11 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col bg-slate-950 text-slate-100 ${language === "ur" ? "rtl font-sans" : "ltr font-sans"}`}>
+    <div
+      className={`min-h-screen flex flex-col bg-slate-950 text-slate-100 ${
+        language === "ur" ? "rtl font-sans" : "ltr font-sans"
+      }`}
+    >
       <Navbar
         currentTab={currentTab}
         setCurrentTab={navigateToTab}
@@ -223,7 +233,9 @@ export default function App() {
                   transition={{ duration: 0.5 }}
                   className="text-center space-y-2 mb-8"
                 >
-                  <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 ${BORDER} text-xs text-amber-400 font-semibold`}>
+                  <div
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 ${BORDER} text-xs text-amber-400 font-semibold`}
+                  >
                     <Compass className="w-3.5 h-3.5 text-amber-300" />
                     <span>The 4 Core Pillars of AAGAHI</span>
                   </div>
@@ -253,7 +265,9 @@ export default function App() {
                     className={`bg-slate-900/90 rounded-2xl ${BORDER} hover:border-[#482618] p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all`}
                   >
                     <div className="space-y-3">
-                      <div className={`w-10 h-10 rounded-xl bg-amber-950 ${BORDER} flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner`}>
+                      <div
+                        className={`w-10 h-10 rounded-xl bg-amber-950 ${BORDER} flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner`}
+                      >
                         <Sparkles className="w-5 h-5" />
                       </div>
                       <div>
@@ -283,7 +297,9 @@ export default function App() {
                     className={`bg-slate-900/90 rounded-2xl ${BORDER} hover:border-[#482618] p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all`}
                   >
                     <div className="space-y-3">
-                      <div className={`w-10 h-10 rounded-xl bg-amber-950 ${BORDER} flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner`}>
+                      <div
+                        className={`w-10 h-10 rounded-xl bg-amber-950 ${BORDER} flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner`}
+                      >
                         <BookOpen className="w-5 h-5" />
                       </div>
                       <div>
@@ -313,7 +329,9 @@ export default function App() {
                     className={`bg-slate-900/90 rounded-2xl ${BORDER} hover:border-[#482618] p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all`}
                   >
                     <div className="space-y-3">
-                      <div className={`w-10 h-10 rounded-xl bg-sky-950 ${BORDER} flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform shadow-inner`}>
+                      <div
+                        className={`w-10 h-10 rounded-xl bg-sky-950 ${BORDER} flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform shadow-inner`}
+                      >
                         <UserCheck className="w-5 h-5" />
                       </div>
                       <div>
@@ -342,7 +360,9 @@ export default function App() {
                     className={`bg-slate-900/90 rounded-2xl ${BORDER} hover:border-[#482618] p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all`}
                   >
                     <div className="space-y-3">
-                      <div className={`w-10 h-10 rounded-xl bg-rose-950 ${BORDER} flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform shadow-inner`}>
+                      <div
+                        className={`w-10 h-10 rounded-xl bg-rose-950 ${BORDER} flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform shadow-inner`}
+                      >
                         <ShieldAlert className="w-5 h-5" />
                       </div>
                       <div>
@@ -382,7 +402,9 @@ export default function App() {
                     viewport={{ once: true }}
                     className="text-center space-y-3"
                   >
-                    <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950 ${BORDER} text-xs font-semibold text-amber-300`}>
+                    <div
+                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950 ${BORDER} text-xs font-semibold text-amber-300`}
+                    >
                       <CheckCircle2 className="w-3.5 h-3.5 text-amber-300" />
                       <span>Simple & Transparent Process</span>
                     </div>
@@ -408,7 +430,11 @@ export default function App() {
                         whileHover={{ y: -5, scale: 1.02 }}
                         className={`p-6 rounded-2xl bg-slate-950 ${BORDER} space-y-3 relative group hover:border-[#482618] transition-colors shadow-lg`}
                       >
-                        <div className={`w-12 h-12 rounded-xl ${step === 4 ? "bg-sky-950 text-sky-300" : "bg-amber-950 text-amber-300"} font-black text-lg flex items-center justify-center ${BORDER} shadow`}>
+                        <div
+                          className={`w-12 h-12 rounded-xl ${
+                            step === 4 ? "bg-sky-950 text-sky-300" : "bg-amber-950 text-amber-300"
+                          } font-black text-lg flex items-center justify-center ${BORDER} shadow`}
+                        >
                           {step}
                         </div>
                         <h3 className="font-extrabold text-base text-white">
@@ -439,7 +465,9 @@ export default function App() {
             >
               <div className={`bg-slate-900 border-b ${BORDER} py-10 px-4 sm:px-6 lg:px-8`}>
                 <div className="max-w-6xl mx-auto space-y-6 text-center">
-                  <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950 ${BORDER} text-amber-300 text-xs font-semibold`}>
+                  <div
+                    className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950 ${BORDER} text-amber-300 text-xs font-semibold`}
+                  >
                     <BookOpen className="w-3.5 h-3.5 text-amber-300" />
                     <span>Constitutional Literacy & Step-by-Step Guides</span>
                   </div>
@@ -450,7 +478,9 @@ export default function App() {
                     Understand your supreme constitutional protections under the 1973 Constitution alongside official procedural guides for police, cybercrime, and property disputes.
                   </p>
 
-                  <div className={`inline-flex items-center p-1.5 rounded-2xl bg-slate-950 ${BORDER} shadow-xl`}>
+                  <div
+                    className={`inline-flex items-center p-1.5 rounded-2xl bg-slate-950 ${BORDER} shadow-xl`}
+                  >
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => setPage2SubTab("rights")}
@@ -523,7 +553,9 @@ export default function App() {
             >
               <div className={`bg-slate-900 border-b ${BORDER} py-10 px-4 sm:px-6 lg:px-8`}>
                 <div className="max-w-6xl mx-auto space-y-6 text-center">
-                  <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950 ${BORDER} text-sky-300 text-xs font-semibold`}>
+                  <div
+                    className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950 ${BORDER} text-sky-300 text-xs font-semibold`}
+                  >
                     <UserCheck className="w-3.5 h-3.5 text-amber-300" />
                     <span>Bar Council Verified Advocates & Court FAQ</span>
                   </div>
@@ -534,7 +566,9 @@ export default function App() {
                     Book confidential appointments with licensed High Court & Supreme Court advocates or browse authoritative statutory FAQs.
                   </p>
 
-                  <div className={`inline-flex items-center p-1.5 rounded-2xl bg-slate-950 ${BORDER} shadow-xl`}>
+                  <div
+                    className={`inline-flex items-center p-1.5 rounded-2xl bg-slate-950 ${BORDER} shadow-xl`}
+                  >
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => setPage3SubTab("directory")}
