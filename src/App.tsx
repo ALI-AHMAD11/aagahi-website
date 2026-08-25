@@ -187,7 +187,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col bg-slate-950 text-slate-100 ${language === "ur" ? "rtl font-sans" : "ltr font-sans"}`}>
+    <div className={`min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 text-slate-100 ${language === "ur" ? "rtl font-sans" : "ltr font-sans"}`}>
       {/* Top Modern Sticky Navbar */}
       <Navbar
         currentTab={currentTab}
@@ -665,7 +665,7 @@ export default function App() {
           )}
 
           {/* ========================================================================= */}
-          {/* PAGE 4: EMERGENCY HELPLINES DIRECTORY                                      */}
+          {/* PAGE 4: EMERGENCY HELPLINES                                              */}
           {/* ========================================================================= */}
           {currentTab === "emergency" && (
             <motion.div
@@ -674,17 +674,14 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="space-y-8 pb-16"
+              className="py-8"
             >
-              <EmergencyContactsSection
-                language={language}
-                customContacts={[]}
-              />
+              <EmergencyContactsSection language={language} />
             </motion.div>
           )}
 
           {/* ========================================================================= */}
-          {/* PAGE 5: MY LEGAL HUB & CONSULTATIONS                                      */}
+          {/* PAGE 5: DASHBOARD & BOOKINGS MANAGEMENT                                  */}
           {/* ========================================================================= */}
           {currentTab === "dashboard" && (
             <motion.div
@@ -693,63 +690,45 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="space-y-8 pb-16"
+              className="py-8"
             >
               <Dashboards
                 language={language}
                 appointments={appointments}
-                savedArticleIds={savedArticleIds}
                 onCancelAppointment={handleCancelAppointment}
-                onNavigateTab={navigateToTab}
-                openEmergencyModal={() => {
-                  setCurrentTab("emergency");
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                openAIAssistant={() => setIsAIAssistantOpen(true)}
+                savedArticleIds={savedArticleIds}
+                toggleSaveArticle={toggleSaveArticle}
+                setCurrentTab={navigateToTab}
               />
             </motion.div>
           )}
         </AnimatePresence>
       </main>
 
-      {/* Floating Emergency & AI Assistant Widget */}
+      {/* Global Footer */}
+      <Footer language={language} setCurrentTab={navigateToTab} />
+
+      {/* Floating Emergency Action Button */}
       <FloatingEmergency
-        onOpenEmergencyModal={() => {
+        openEmergencyModal={() => {
           setCurrentTab("emergency");
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
-        onOpenAIAssistant={() => setIsAIAssistantOpen(true)}
-        language={language}
       />
 
-      {/* Global AI Assistant Modal */}
+      {/* AI Assistant Chat Modal */}
       <AIAssistantModal
         isOpen={isAIAssistantOpen}
         onClose={() => setIsAIAssistantOpen(false)}
         language={language}
-        openEmergencyModal={() => {
-          setIsAIAssistantOpen(false);
-          setCurrentTab("emergency");
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
       />
 
-      {/* Global Search Laws Modal */}
+      {/* Laws Search Modal */}
       <SearchLawsModal
         isOpen={isSearchModalOpen}
         onClose={() => setIsSearchModalOpen(false)}
         language={language}
-      />
-
-      {/* Authoritative Footer with Creator Credit */}
-      <Footer
-        language={language}
-        setLanguage={setLanguage}
         setCurrentTab={navigateToTab}
-        openEmergencyModal={() => {
-          setCurrentTab("emergency");
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
       />
     </div>
   );
