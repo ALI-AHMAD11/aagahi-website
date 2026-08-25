@@ -1,34 +1,14 @@
 @import "tailwindcss";
 
-@theme {
-  /* Brand palette — sophisticated legal-tech aesthetic */
-  --color-brand-navy: #0b1329;         /* Rich, deep indigo-slate background */
-  --color-brand-navy-light: #162238;    /* Lighter slate-blue card background */
-  --color-brand-slate: #243554;         /* Clean, defined border color */
-  --color-brand-offwhite: #f8f7f4;
-  --color-brand-gold: #d99b26;          /* Warm champagne/bronze gold */
-  --color-brand-gold-dark: #a87214;     /* Deep bronze gold hover state */
-  --color-brand-emergency: #e11d48;
-
-  /* Typography scale */
-  --font-size-hero: 3.5rem;       
-  --font-size-section: 2.25rem;   
-  --font-size-subheading: 1.5rem; 
-  --font-size-card: 1.25rem;      
-
-  /* Radius + spacing tokens */
-  --radius-card: 14px;
-  --radius-button: 10px;
-}
-
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     scroll-behavior: smooth;
-    background: linear-gradient(135deg, #070d1f 0%, #0b1329 50%, #080f22 100%);
-    color: var(--color-brand-offwhite);
-    min-height: 100vh;
   }
+
+  /* Signature display serif — gives headings gravitas instead of the default
+     sans-everywhere look. Applied broadly so every section picks it up
+     automatically without editing each component. */
   h1, h2, h3,
   .font-display {
     font-family: 'Fraunces', 'Plus Jakarta Sans', serif;
@@ -42,75 +22,57 @@
   line-height: 1.8;
 }
 
-/* Shared button base */
-.btn {
-  height: 46px;
-  padding: 0 22px;
-  border-radius: var(--radius-button);
-  font-size: 15px;
-  font-weight: 600;
-  transition: all 220ms ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-.btn-primary {
-  background-color: var(--color-brand-gold);
-  color: #070d1f;
-}
-.btn-primary:hover {
-  background-color: var(--color-brand-gold-dark);
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-.btn-secondary {
-  background-color: transparent;
-  border: 1px solid var(--color-brand-slate);
-  color: var(--color-brand-offwhite);
-}
-.btn-secondary:hover {
-  border-color: var(--color-brand-gold);
-}
-
-/* Shared card base — luxurious frosted glass */
-.card {
-  border-radius: var(--radius-card);
-  padding: 28px;
-  background-color: rgba(22, 34, 56, 0.75);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(59, 130, 246, 0.15);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
-}
-.card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(217, 155, 38, 0.35);
-  box-shadow: 0 15px 35px -10px rgba(217, 155, 38, 0.12);
-}
-
-/* --- Animations --- */
+/* Custom Smooth Animations */
 @keyframes subtle-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217, 155, 38, 0.4); }
-  50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(217, 155, 38, 0); }
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+  }
 }
-.animate-subtle-pulse { animation: subtle-pulse 3s infinite ease-in-out; }
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 3s infinite ease-in-out;
+}
 
 @keyframes emergency-glow {
-  0%, 100% { box-shadow: 0 0 12px rgba(225, 29, 72, 0.45), inset 0 0 12px rgba(225, 29, 72, 0.15); }
-  50% { box-shadow: 0 0 20px rgba(225, 29, 72, 0.65), inset 0 0 18px rgba(225, 29, 72, 0.3); }
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(225, 29, 72, 0.5), inset 0 0 15px rgba(225, 29, 72, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(225, 29, 72, 0.8), inset 0 0 25px rgba(225, 29, 72, 0.4);
+  }
 }
-.animate-emergency-glow { animation: emergency-glow 2.2s infinite ease-in-out; }
+
+.animate-emergency-glow {
+  animation: emergency-glow 2s infinite ease-in-out;
+}
 
 @keyframes float-slow {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
-.animate-float { animation: float-slow 4s ease-in-out infinite; }
+
+.animate-float {
+  animation: float-slow 4s ease-in-out infinite;
+}
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
+
 .animate-shimmer {
   background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
   background-size: 200% 100%;
@@ -118,23 +80,52 @@
 }
 
 @keyframes gradient-x {
-  0%, 100% { background-size: 200% 200%; background-position: left center; }
-  50% { background-size: 200% 200%; background-position: right center; }
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
 }
-.animate-gradient-x { animation: gradient-x 6s ease infinite; }
+
+.animate-gradient-x {
+  animation: gradient-x 6s ease infinite;
+}
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.animate-fade-in { animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
 /* Custom Scrollbar */
-::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: var(--color-brand-navy); }
-::-webkit-scrollbar-thumb {
-  background: var(--color-brand-slate);
-  border-radius: 4px;
-  border: 1px solid var(--color-brand-navy-light);
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--color-brand-gold); }
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+  border: 1px solid #0f172a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
