@@ -27,16 +27,15 @@ import {
   Compass,
   FileText,
   HelpCircle,
-  PhoneCall,
-  Bookmark
 } from "lucide-react";
 
-// Reusable scroll-reveal variants for staggered grid entrances (Pillars, How-It-Works steps).
-// Purely additive — does not alter any existing hover/tap/click behavior on the items.
+const BORDER = "border-[#482618]";
+
 const staggerContainerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
 };
+
 const staggerItemVariants = {
   hidden: { opacity: 0, y: 26, scale: 0.96 },
   visible: {
@@ -47,9 +46,6 @@ const staggerItemVariants = {
   },
 };
 
-// A small courtroom-themed scroll divider: a scales-of-justice icon that "settles" into
-// balance as it enters the viewport, with a thin line drawing outward like a gavel strike.
-// Insert this between sections wherever a visual breath/transition is wanted.
 const CourtroomScrollDivider: React.FC = () => (
   <div className="flex items-center justify-center gap-4 py-2 select-none" aria-hidden="true">
     <motion.span
@@ -64,7 +60,7 @@ const CourtroomScrollDivider: React.FC = () => (
       whileInView={{ opacity: 1, rotate: 0, y: 0 }}
       viewport={{ once: true, amount: 0.8 }}
       transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-      className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-amber-400 shadow-lg shadow-amber-950/40"
+      className={`w-9 h-9 rounded-full bg-slate-900 ${BORDER} flex items-center justify-center text-amber-400 shadow-lg shadow-amber-950/40`}
     >
       <Scale className="w-4 h-4" />
     </motion.div>
@@ -82,19 +78,15 @@ export default function App() {
   const [currentTab, setCurrentTab] = useState<ViewTab>("home");
   const [language, setLanguage] = useState<Language>("en");
 
-  // Secondary sub-tab states within organized pages
   const [page2SubTab, setPage2SubTab] = useState<"rights" | "guides">("rights");
   const [page3SubTab, setPage3SubTab] = useState<"directory" | "faqs">("directory");
 
-  // Solver query & preset lawyer filters
   const [solverQuery, setSolverQuery] = useState<string>("");
   const [presetLawyerCategory, setPresetLawyerCategory] = useState<string>("");
 
-  // Modals state
   const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
-  // Saved Articles & Appointments state (persisted to localStorage)
   const [savedArticleIds, setSavedArticleIds] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem("aagahi_saved_articles");
@@ -188,7 +180,6 @@ export default function App() {
 
   return (
     <div className={`min-h-screen flex flex-col bg-slate-950 text-slate-100 ${language === "ur" ? "rtl font-sans" : "ltr font-sans"}`}>
-      {/* Top Modern Sticky Navbar */}
       <Navbar
         currentTab={currentTab}
         setCurrentTab={navigateToTab}
@@ -203,12 +194,8 @@ export default function App() {
         appointmentsCount={appointments.length}
       />
 
-      {/* Main Content Area with Smooth Tab Transitions */}
       <main className="flex-1 overflow-x-hidden">
         <AnimatePresence mode="wait">
-          {/* ========================================================================= */}
-          {/* PAGE 1: HOME & LEGAL AI PROBLEM SOLVER                                   */}
-          {/* ========================================================================= */}
           {currentTab === "home" && (
             <motion.div
               key="home-page"
@@ -218,7 +205,6 @@ export default function App() {
               transition={{ duration: 0.35, ease: "easeInOut" }}
               className="space-y-16"
             >
-              {/* 1. Video Hero Section (Gavel & Law Library with Creator Ali Ahmad) */}
               <Hero
                 language={language}
                 onSearchSubmit={handleHeroSearch}
@@ -229,16 +215,15 @@ export default function App() {
                 }}
               />
 
-              {/* 2. Interactive Navigation Bento: 4 Core Pillars */}
               <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
                   className="text-center space-y-2 mb-8"
                 >
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-amber-400 font-semibold">
+                  <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 ${BORDER} text-xs text-amber-400 font-semibold`}>
                     <Compass className="w-3.5 h-3.5 text-amber-300" />
                     <span>The 4 Core Pillars of AAGAHI</span>
                   </div>
@@ -257,7 +242,6 @@ export default function App() {
                   viewport={{ once: true, amount: 0.2 }}
                   className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
                 >
-                  {/* Pillar 1 */}
                   <motion.div
                     variants={staggerItemVariants}
                     whileHover={{ y: -6, scale: 1.02 }}
@@ -266,10 +250,10 @@ export default function App() {
                       setCurrentTab("home");
                       window.scrollTo({ top: 560, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-slate-800 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className={`bg-slate-900/90 rounded-2xl ${BORDER} hover:border-[#482618] p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all`}
                   >
                     <div className="space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-950 border border-slate-800 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner">
+                      <div className={`w-10 h-10 rounded-xl bg-amber-950 ${BORDER} flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner`}>
                         <Sparkles className="w-5 h-5" />
                       </div>
                       <div>
@@ -287,7 +271,6 @@ export default function App() {
                     </div>
                   </motion.div>
 
-                  {/* Pillar 2 */}
                   <motion.div
                     variants={staggerItemVariants}
                     whileHover={{ y: -6, scale: 1.02 }}
@@ -297,10 +280,10 @@ export default function App() {
                       setPage2SubTab("rights");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-slate-800 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className={`bg-slate-900/90 rounded-2xl ${BORDER} hover:border-[#482618] p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all`}
                   >
                     <div className="space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-950 border border-slate-800 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner">
+                      <div className={`w-10 h-10 rounded-xl bg-amber-950 ${BORDER} flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner`}>
                         <BookOpen className="w-5 h-5" />
                       </div>
                       <div>
@@ -318,7 +301,6 @@ export default function App() {
                     </div>
                   </motion.div>
 
-                  {/* Pillar 3 */}
                   <motion.div
                     variants={staggerItemVariants}
                     whileHover={{ y: -6, scale: 1.02 }}
@@ -328,10 +310,10 @@ export default function App() {
                       setPage3SubTab("directory");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-slate-800 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className={`bg-slate-900/90 rounded-2xl ${BORDER} hover:border-[#482618] p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all`}
                   >
                     <div className="space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-sky-950 border border-slate-800 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform shadow-inner">
+                      <div className={`w-10 h-10 rounded-xl bg-sky-950 ${BORDER} flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform shadow-inner`}>
                         <UserCheck className="w-5 h-5" />
                       </div>
                       <div>
@@ -349,7 +331,6 @@ export default function App() {
                     </div>
                   </motion.div>
 
-                  {/* Pillar 4 */}
                   <motion.div
                     variants={staggerItemVariants}
                     whileHover={{ y: -6, scale: 1.02 }}
@@ -358,10 +339,10 @@ export default function App() {
                       setCurrentTab("emergency");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-slate-800 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className={`bg-slate-900/90 rounded-2xl ${BORDER} hover:border-[#482618] p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all`}
                   >
                     <div className="space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-rose-950 border border-slate-800 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform shadow-inner">
+                      <div className={`w-10 h-10 rounded-xl bg-rose-950 ${BORDER} flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform shadow-inner`}>
                         <ShieldAlert className="w-5 h-5" />
                       </div>
                       <div>
@@ -383,8 +364,7 @@ export default function App() {
 
               <CourtroomScrollDivider />
 
-              {/* 3. Embedded Live Legal Problem Solver */}
-              <div id="solver-section" className="border-t border-slate-800 pt-8">
+              <div id="solver-section" className={`border-t ${BORDER} pt-8`}>
                 <LegalProblemSolver
                   initialQuery={solverQuery}
                   language={language}
@@ -394,16 +374,15 @@ export default function App() {
                 />
               </div>
 
-              {/* 4. How AAGAHI Works Process */}
-              <section className="bg-slate-900/80 py-16 px-4 sm:px-6 lg:px-8 border-y border-slate-800">
+              <section className={`bg-slate-900/80 py-16 px-4 sm:px-6 lg:px-8 border-y ${BORDER}`}>
                 <div className="max-w-6xl mx-auto space-y-12">
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="text-center space-y-3"
                   >
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950 border border-slate-800 text-xs font-semibold text-amber-300">
+                    <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950 ${BORDER} text-xs font-semibold text-amber-300`}>
                       <CheckCircle2 className="w-3.5 h-3.5 text-amber-300" />
                       <span>Simple & Transparent Process</span>
                     </div>
@@ -422,71 +401,33 @@ export default function App() {
                     viewport={{ once: true, amount: 0.2 }}
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                   >
-                    {/* Step 1 */}
-                    <motion.div 
-                      variants={staggerItemVariants}
-                      whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-slate-800 transition-colors shadow-lg"
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-slate-800 shadow">
-                        1
-                      </div>
-                      <h3 className="font-extrabold text-base text-white">{t.step1Title}</h3>
-                      <p className="text-xs text-slate-400 leading-relaxed">{t.step1Desc}</p>
-                    </motion.div>
-
-                    {/* Step 2 */}
-                    <motion.div 
-                      variants={staggerItemVariants}
-                      whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-slate-800 transition-colors shadow-lg"
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-slate-800 shadow">
-                        2
-                      </div>
-                      <h3 className="font-extrabold text-base text-white">{t.step2Title}</h3>
-                      <p className="text-xs text-slate-400 leading-relaxed">{t.step2Desc}</p>
-                    </motion.div>
-
-                    {/* Step 3 */}
-                    <motion.div 
-                      variants={staggerItemVariants}
-                      whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-slate-800 transition-colors shadow-lg"
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-slate-800 shadow">
-                        3
-                      </div>
-                      <h3 className="font-extrabold text-base text-white">{t.step3Title}</h3>
-                      <p className="text-xs text-slate-400 leading-relaxed">{t.step3Desc}</p>
-                    </motion.div>
-
-                    {/* Step 4 */}
-                    <motion.div 
-                      variants={staggerItemVariants}
-                      whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-slate-800 transition-colors shadow-lg"
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-sky-950 text-sky-300 font-black text-lg flex items-center justify-center border border-slate-800 shadow">
-                        4
-                      </div>
-                      <h3 className="font-extrabold text-base text-white">{t.step4Title}</h3>
-                      <p className="text-xs text-slate-400 leading-relaxed">{t.step4Desc}</p>
-                    </motion.div>
+                    {[1, 2, 3, 4].map((step) => (
+                      <motion.div
+                        key={step}
+                        variants={staggerItemVariants}
+                        whileHover={{ y: -5, scale: 1.02 }}
+                        className={`p-6 rounded-2xl bg-slate-950 ${BORDER} space-y-3 relative group hover:border-[#482618] transition-colors shadow-lg`}
+                      >
+                        <div className={`w-12 h-12 rounded-xl ${step === 4 ? "bg-sky-950 text-sky-300" : "bg-amber-950 text-amber-300"} font-black text-lg flex items-center justify-center ${BORDER} shadow`}>
+                          {step}
+                        </div>
+                        <h3 className="font-extrabold text-base text-white">
+                          {t[`step${step}Title` as keyof typeof t]}
+                        </h3>
+                        <p className="text-xs text-slate-400 leading-relaxed">
+                          {t[`step${step}Desc` as keyof typeof t]}
+                        </p>
+                      </motion.div>
+                    ))}
                   </motion.div>
                 </div>
               </section>
 
               <CourtroomScrollDivider />
-
-              {/* 5. Creator Spotlight: Ali Ahmad & Vision for Pakistan */}
               <AboutCreatorSection language={language} />
             </motion.div>
           )}
 
-          {/* ========================================================================= */}
-          {/* PAGE 2: CONSTITUTIONAL RIGHTS & CITIZEN GUIDES                           */}
-          {/* ========================================================================= */}
           {currentTab === "constitution" && (
             <motion.div
               key="constitution-page"
@@ -496,10 +437,9 @@ export default function App() {
               transition={{ duration: 0.35, ease: "easeInOut" }}
               className="space-y-8 pb-16"
             >
-              {/* Page Header & Sub-Tab Switcher */}
-              <div className="bg-slate-900 border-b border-slate-800 py-10 px-4 sm:px-6 lg:px-8">
+              <div className={`bg-slate-900 border-b ${BORDER} py-10 px-4 sm:px-6 lg:px-8`}>
                 <div className="max-w-6xl mx-auto space-y-6 text-center">
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950 border border-slate-800 text-amber-300 text-xs font-semibold">
+                  <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950 ${BORDER} text-amber-300 text-xs font-semibold`}>
                     <BookOpen className="w-3.5 h-3.5 text-amber-300" />
                     <span>Constitutional Literacy & Step-by-Step Guides</span>
                   </div>
@@ -510,8 +450,7 @@ export default function App() {
                     Understand your supreme constitutional protections under the 1973 Constitution alongside official procedural guides for police, cybercrime, and property disputes.
                   </p>
 
-                  {/* Sub-Tabs Selector */}
-                  <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-950 border border-slate-800 shadow-xl">
+                  <div className={`inline-flex items-center p-1.5 rounded-2xl bg-slate-950 ${BORDER} shadow-xl`}>
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => setPage2SubTab("rights")}
@@ -541,7 +480,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Sub-view Content with Animated Transitions */}
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <AnimatePresence mode="wait">
                   {page2SubTab === "rights" ? (
@@ -574,9 +512,6 @@ export default function App() {
             </motion.div>
           )}
 
-          {/* ========================================================================= */}
-          {/* PAGE 3: VERIFIED ADVOCATES & LEGAL FAQS                                  */}
-          {/* ========================================================================= */}
           {currentTab === "lawyers" && (
             <motion.div
               key="lawyers-page"
@@ -586,10 +521,9 @@ export default function App() {
               transition={{ duration: 0.35, ease: "easeInOut" }}
               className="space-y-8 pb-16"
             >
-              {/* Page Header & Sub-Tab Switcher */}
-              <div className="bg-slate-900 border-b border-slate-800 py-10 px-4 sm:px-6 lg:px-8">
+              <div className={`bg-slate-900 border-b ${BORDER} py-10 px-4 sm:px-6 lg:px-8`}>
                 <div className="max-w-6xl mx-auto space-y-6 text-center">
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950 border border-slate-800 text-sky-300 text-xs font-semibold">
+                  <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950 ${BORDER} text-sky-300 text-xs font-semibold`}>
                     <UserCheck className="w-3.5 h-3.5 text-amber-300" />
                     <span>Bar Council Verified Advocates & Court FAQ</span>
                   </div>
@@ -600,8 +534,7 @@ export default function App() {
                     Book confidential appointments with licensed High Court & Supreme Court advocates or browse authoritative statutory FAQs.
                   </p>
 
-                  {/* Sub-Tabs Selector */}
-                  <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-950 border border-slate-800 shadow-xl">
+                  <div className={`inline-flex items-center p-1.5 rounded-2xl bg-slate-950 ${BORDER} shadow-xl`}>
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => setPage3SubTab("directory")}
@@ -631,7 +564,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Sub-view Content with Animated Transitions */}
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <AnimatePresence mode="wait">
                   {page3SubTab === "directory" ? (
@@ -664,9 +596,6 @@ export default function App() {
             </motion.div>
           )}
 
-          {/* ========================================================================= */}
-          {/* PAGE 4: EMERGENCY HELPLINES DIRECTORY                                      */}
-          {/* ========================================================================= */}
           {currentTab === "emergency" && (
             <motion.div
               key="emergency-page"
@@ -676,16 +605,10 @@ export default function App() {
               transition={{ duration: 0.35, ease: "easeInOut" }}
               className="space-y-8 pb-16"
             >
-              <EmergencyContactsSection
-                language={language}
-                customContacts={[]}
-              />
+              <EmergencyContactsSection language={language} customContacts={[]} />
             </motion.div>
           )}
 
-          {/* ========================================================================= */}
-          {/* PAGE 5: MY LEGAL HUB & CONSULTATIONS                                      */}
-          {/* ========================================================================= */}
           {currentTab === "dashboard" && (
             <motion.div
               key="dashboard-page"
@@ -712,7 +635,6 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* Floating Emergency & AI Assistant Widget */}
       <FloatingEmergency
         onOpenEmergencyModal={() => {
           setCurrentTab("emergency");
@@ -722,7 +644,6 @@ export default function App() {
         language={language}
       />
 
-      {/* Global AI Assistant Modal */}
       <AIAssistantModal
         isOpen={isAIAssistantOpen}
         onClose={() => setIsAIAssistantOpen(false)}
@@ -734,14 +655,12 @@ export default function App() {
         }}
       />
 
-      {/* Global Search Laws Modal */}
       <SearchLawsModal
         isOpen={isSearchModalOpen}
         onClose={() => setIsSearchModalOpen(false)}
         language={language}
       />
 
-      {/* Authoritative Footer with Creator Credit */}
       <Footer
         language={language}
         setLanguage={setLanguage}
