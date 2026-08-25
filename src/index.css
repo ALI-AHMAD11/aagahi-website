@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — Crisp Modern Light Theme */
-  --color-brand-navy: #f8fafc;          /* Clean, airy light background */
-  --color-brand-navy-light: #ffffff;    /* Pure white card background */
-  --color-brand-slate: #e2e8f0;         /* Subtle, elegant border contrast */
-  --color-brand-offwhite: #0f172a;      /* Deep rich text color for high contrast */
-  --color-brand-gold: #d97706;          /* Rich professional amber/gold */
-  --color-brand-gold-dark: #b45309;     /* Deep gold hover state */
+  /* Brand palette — Pitch Black Theme with Slate Gray Cards */
+  --color-brand-navy: #000000;         /* Pitch black for the entire website background */
+  --color-brand-navy-light: #1f293d;   /* Sleek gray background for your boxes and cards */
+  --color-brand-slate: #374151;        /* Defined border color for clean separation */
+  --color-brand-offwhite: #f8f7f4;     /* Crisp light text color for readability */
+  --color-brand-gold: #f59e0b;         /* Rich professional amber/gold */
+  --color-brand-gold-dark: #b45309;    /* Deep gold hover state */
   --color-brand-emergency: #e11d48;
 
   /* Typography scale */
@@ -25,8 +25,8 @@
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     scroll-behavior: smooth;
-    background-color: #f1f5f9;
-    color: #0f172a;
+    background-color: var(--color-brand-navy);
+    color: var(--color-brand-offwhite);
     min-height: 100vh;
   }
   h1, h2, h3,
@@ -53,41 +53,41 @@
 }
 .btn-primary {
   background-color: var(--color-brand-gold);
-  color: #ffffff;
+  color: var(--color-brand-navy);
 }
 .btn-primary:hover {
   background-color: var(--color-brand-gold-dark);
   transform: translateY(-1px);
 }
 .btn-secondary {
-  background-color: #ffffff;
+  background-color: transparent;
   border: 1px solid var(--color-brand-slate);
-  color: #0f172a;
+  color: var(--color-brand-offwhite);
 }
 .btn-secondary:hover {
   border-color: var(--color-brand-gold);
   color: var(--color-brand-gold);
 }
 
-/* Shared card base — clean white elevated surface with soft shadows */
+/* Shared card base — precise gray surface matching your design */
 .card {
   border-radius: var(--radius-card);
   padding: 28px;
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  background-color: var(--color-brand-navy-light);
+  border: 1px solid var(--color-brand-slate);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
 }
 .card:hover {
   transform: translateY(-3px);
-  border-color: #cbd5e1;
-  box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.1);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 15px 35px -10px rgba(245, 158, 11, 0.15);
 }
 
 /* --- Animations --- */
 @keyframes subtle-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.3); }
-  50% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(217, 119, 6, 0); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.3); }
+  50% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
 }
 .animate-subtle-pulse { animation: subtle-pulse 3s infinite ease-in-out; }
 
@@ -111,9 +111,9 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-track { background: #000000; }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #374151;
   border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+::-webkit-scrollbar-thumb:hover { background: #4b5563; }
