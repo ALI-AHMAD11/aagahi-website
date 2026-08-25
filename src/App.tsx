@@ -187,7 +187,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col bg-slate-950 text-slate-100 ${language === "ur" ? "rtl font-sans" : "ltr font-sans"}`}>
+    <div className={`min-h-screen flex flex-col bg-slate-900 text-slate-100 ${language === "ur" ? "rtl font-sans" : "ltr font-sans"}`}>
       {/* Top Modern Sticky Navbar */}
       <Navbar
         currentTab={currentTab}
@@ -266,7 +266,7 @@ export default function App() {
                       setCurrentTab("home");
                       window.scrollTo({ top: 560, behavior: "smooth" });
                     }}
-                    className="bg-slate-950 rounded-2xl border border-slate-800 hover:border-amber-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-amber-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-amber-950 border border-amber-700/50 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner">
@@ -297,7 +297,7 @@ export default function App() {
                       setPage2SubTab("rights");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-950 rounded-2xl border border-slate-800 hover:border-amber-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-amber-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-amber-950 border border-amber-700/50 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform shadow-inner">
@@ -328,7 +328,7 @@ export default function App() {
                       setPage3SubTab("directory");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-950 rounded-2xl border border-slate-800 hover:border-sky-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-sky-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-sky-950 border border-sky-700/50 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform shadow-inner">
@@ -358,7 +358,7 @@ export default function App() {
                       setCurrentTab("emergency");
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="bg-slate-950 rounded-2xl border border-slate-800 hover:border-rose-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
+                    className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-rose-500/80 p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all"
                   >
                     <div className="space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-rose-950 border border-rose-700/50 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform shadow-inner">
@@ -426,7 +426,7 @@ export default function App() {
                     <motion.div 
                       variants={staggerItemVariants}
                       whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-amber-500/60 transition-colors shadow-lg"
+                      className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 relative group hover:border-amber-500/60 transition-colors shadow-lg"
                     >
                       <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-amber-700/60 shadow">
                         1
@@ -439,7 +439,7 @@ export default function App() {
                     <motion.div 
                       variants={staggerItemVariants}
                       whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-amber-500/60 transition-colors shadow-lg"
+                      className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 relative group hover:border-amber-500/60 transition-colors shadow-lg"
                     >
                       <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-amber-700/60 shadow">
                         2
@@ -452,7 +452,7 @@ export default function App() {
                     <motion.div 
                       variants={staggerItemVariants}
                       whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-amber-500/60 transition-colors shadow-lg"
+                      className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 relative group hover:border-amber-500/60 transition-colors shadow-lg"
                     >
                       <div className="w-12 h-12 rounded-xl bg-amber-950 text-amber-300 font-black text-lg flex items-center justify-center border border-amber-700/60 shadow">
                         3
@@ -465,7 +465,7 @@ export default function App() {
                     <motion.div 
                       variants={staggerItemVariants}
                       whileHover={{ y: -5, scale: 1.02 }}
-                      className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-sky-500/60 transition-colors shadow-lg"
+                      className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 relative group hover:border-sky-500/60 transition-colors shadow-lg"
                     >
                       <div className="w-12 h-12 rounded-xl bg-sky-950 text-sky-300 font-black text-lg flex items-center justify-center border border-sky-700/60 shadow">
                         4
@@ -511,7 +511,7 @@ export default function App() {
                   </p>
 
                   {/* Sub-Tabs Selector */}
-                  <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-950 border border-slate-800 shadow-xl">
+                  <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-900 border border-slate-800 shadow-xl">
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => setPage2SubTab("rights")}
@@ -601,7 +601,7 @@ export default function App() {
                   </p>
 
                   {/* Sub-Tabs Selector */}
-                  <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-950 border border-slate-800 shadow-xl">
+                  <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-900 border border-slate-800 shadow-xl">
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => setPage3SubTab("directory")}
