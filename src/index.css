@@ -2,7 +2,7 @@
 
 @theme {
   /* Brand palette — sophisticated legal-tech aesthetic */
-  --color-brand-navy: #0b1329;          /* Rich, deep indigo-slate background */
+  --color-brand-navy: #0b1329;         /* Rich, deep indigo-slate background */
   --color-brand-navy-light: #162238;    /* Lighter slate-blue card background */
   --color-brand-slate: #243554;         /* Clean, defined border color */
   --color-brand-offwhite: #f8f7f4;
@@ -50,6 +50,9 @@
   font-size: 15px;
   font-weight: 600;
   transition: all 220ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .btn-primary {
   background-color: var(--color-brand-gold);
@@ -81,7 +84,7 @@
 }
 .card:hover {
   transform: translateY(-3px);
-  border-color: rgba(217, 155, 38, 0.35); /* soft warm bronze border on hover */
+  border-color: rgba(217, 155, 38, 0.35);
   box-shadow: 0 15px 35px -10px rgba(217, 155, 38, 0.12);
 }
 
