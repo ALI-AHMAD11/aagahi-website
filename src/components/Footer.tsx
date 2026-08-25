@@ -9,7 +9,6 @@ interface FooterProps {
   setCurrentTab: (tab: ViewTab) => void;
   openEmergencyModal: () => void;
 }
-
 export const Footer: React.FC<FooterProps> = ({
   language,
   setLanguage,
@@ -22,7 +21,6 @@ export const Footer: React.FC<FooterProps> = ({
   useEffect(() => {
     const saved = localStorage.getItem("aagahi_creator_photo");
     if (saved) setCreatorPhoto(saved);
-
     const handlePhotoUpdate = () => {
       const updated = localStorage.getItem("aagahi_creator_photo");
       if (updated) setCreatorPhoto(updated);
@@ -35,19 +33,17 @@ export const Footer: React.FC<FooterProps> = ({
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
   const navLinks: { label: string; tab: ViewTab }[] = [
     { label: "Home", tab: "home" },
     { label: "Constitution", tab: "constitution" },
     { label: "Find a Lawyer", tab: "lawyers" },
     { label: "Emergency", tab: "emergency" },
   ];
-
   return (
-    <footer className="relative bg-[#0B1220] text-slate-300 border-t border-white/10">
+    <footer className="relative bg-[#0B1220] text-slate-300 border-t border-slate-800">
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-10 py-16 sm:py-20">
         {/* Legal disclaimer strip */}
-        <div className="rounded-xl bg-white/[0.04] border border-white/10 px-5 py-4 sm:px-6 sm:py-5 mb-14">
+        <div className="rounded-xl bg-white/[0.04] border border-slate-800 px-5 py-4 sm:px-6 sm:py-5 mb-14">
           <div className="flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide text-amber-400 mb-1.5">
             <Scale className="w-4 h-4" />
             <span>{t.legalDisclaimerTitle}</span>
@@ -56,13 +52,12 @@ export const Footer: React.FC<FooterProps> = ({
             {t.legalDisclaimerText}
           </p>
         </div>
-
         {/* Main grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-14 border-b border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-14 border-b border-slate-800">
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-[#13213A] border border-amber-500/30 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg bg-[#13213A] border border-slate-800 flex items-center justify-center">
                 <Scale className="w-[18px] h-[18px] text-amber-400" />
               </div>
               <span className="font-bold text-[19px] tracking-tight text-white">AAGAHI</span>
@@ -72,7 +67,6 @@ export const Footer: React.FC<FooterProps> = ({
               accessible information and verified guidance.
             </p>
           </div>
-
           {/* Navigate */}
           <div className="space-y-4">
             <h4 className="text-[13px] font-semibold uppercase tracking-wide text-slate-500">
@@ -91,7 +85,6 @@ export const Footer: React.FC<FooterProps> = ({
               ))}
             </ul>
           </div>
-
           {/* Emergency */}
           <div className="space-y-4">
             <h4 className="text-[13px] font-semibold uppercase tracking-wide text-slate-500 flex items-center gap-1.5">
@@ -123,7 +116,6 @@ export const Footer: React.FC<FooterProps> = ({
               View all emergency help →
             </button>
           </div>
-
           {/* Legal */}
           <div className="space-y-4">
             <h4 className="text-[13px] font-semibold uppercase tracking-wide text-slate-500">
@@ -153,11 +145,10 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
         </div>
-
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3 text-sm text-slate-500">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10 shrink-0 relative">
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-slate-800 shrink-0 relative">
               <img
                 src={creatorPhoto}
                 alt="Ali Ahmad"
@@ -173,7 +164,6 @@ export const Footer: React.FC<FooterProps> = ({
               <span className="text-slate-300 font-medium">Ali Ahmad</span>
             </span>
           </div>
-
           <div className="flex items-center gap-5">
             <div className="flex items-center gap-1 text-sm">
               <button
@@ -197,12 +187,11 @@ export const Footer: React.FC<FooterProps> = ({
                 اردو
               </button>
             </div>
-
             <button
               onClick={scrollToTop}
               aria-label="Back to top"
               title="Back to top"
-              className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/[0.04] border border-white/10 text-slate-400 hover:text-white hover:bg-white/[0.08] transition-colors duration-200"
+              className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/[0.04] border border-slate-800 text-slate-400 hover:text-white hover:bg-white/[0.08] transition-colors duration-200"
             >
               <ArrowUp className="w-4 h-4" />
             </button>
