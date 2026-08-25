@@ -47,8 +47,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close the mobile drawer automatically if the viewport grows past the
-  // mobile breakpoint (e.g. rotating a tablet) so it never gets stuck open.
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) setMobileMenuOpen(false);
@@ -105,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={item.id}
                   onClick={() => setCurrentTab(item.id)}
                   aria-current={isActive ? "page" : undefined}
-                  className={`relative px-4 py-2.5 rounded-xl text-[14px] font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 ${
+                  className={`relative px-4 py-2.5 rounded-xl text-[14px] font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 whitespace-nowrap ${
                     isActive
                       ? "bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-md shadow-amber-950/70 border border-amber-400/50"
                       : "text-slate-200 hover:text-amber-200 hover:bg-white/10 border border-transparent"
@@ -131,15 +129,15 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="hidden sm:flex items-center gap-2.5">
             <button
               onClick={openSearchLawsModal}
-              className="h-11 px-3.5 rounded-xl bg-white/5 hover:bg-white/15 text-slate-100 hover:text-amber-200 border border-amber-300/20 backdrop-blur-sm transition-colors duration-200 flex items-center gap-2 text-[14px] font-medium cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70"
+              className="h-11 px-3.5 rounded-xl bg-white/5 hover:bg-white/15 text-slate-100 hover:text-amber-200 border border-amber-300/20 backdrop-blur-sm transition-colors duration-200 flex items-center gap-2 text-[14px] font-medium cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 whitespace-nowrap"
               title="Search Laws & Constitution"
             >
-              <Search className="w-4 h-4 text-amber-300" />
+              <Search className="w-4 h-4 text-amber-300 shrink-0" />
               <span className="hidden xl:inline">Search Laws</span>
             </button>
 
             {/* Language Switcher (English / Urdu only) */}
-            <div className="flex items-center h-11 p-1 rounded-xl bg-white/5 border border-amber-300/20 backdrop-blur-sm">
+            <div className="flex items-center h-11 p-1 rounded-xl bg-white/5 border border-amber-300/20 backdrop-blur-sm shrink-0">
               <button
                 onClick={() => setLanguage("en")}
                 aria-pressed={language === "en"}
@@ -164,21 +162,21 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             </div>
 
-            {/* AI Assistant Quick Trigger */}
+            {/* AI Assistant Quick Trigger - Fixed with whitespace-nowrap */}
             <button
               onClick={openAIAssistant}
-              className="h-11 px-4 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white text-[14px] font-bold flex items-center gap-2 shadow-lg shadow-sky-950/60 border border-sky-400/40 transition-all duration-200 hover:-translate-y-0.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70"
+              className="h-11 px-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white text-[13px] sm:text-[14px] font-bold flex items-center gap-2 shadow-lg shadow-sky-950/60 border border-sky-400/40 transition-all duration-200 hover:-translate-y-0.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 whitespace-nowrap shrink-0"
             >
-              <Sparkles className="w-4 h-4 text-amber-300" />
+              <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
               <span>Ask AAGAHI AI</span>
             </button>
 
             {/* Emergency Hotline Button */}
             <button
               onClick={openEmergencyModal}
-              className="h-11 px-4 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white text-[14px] font-bold flex items-center gap-2 shadow-lg shadow-rose-950/70 border border-rose-400/50 transition-all duration-200 animate-subtle-pulse cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300/70"
+              className="h-11 px-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white text-[13px] sm:text-[14px] font-bold flex items-center gap-2 shadow-lg shadow-rose-950/70 border border-rose-400/50 transition-all duration-200 animate-subtle-pulse cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300/70 whitespace-nowrap shrink-0"
             >
-              <ShieldAlert className="w-4 h-4" />
+              <ShieldAlert className="w-4 h-4 shrink-0" />
               <span>Emergency 15 / 1122</span>
             </button>
           </div>
@@ -187,10 +185,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={openEmergencyModal}
-              className="h-10 px-3 rounded-lg bg-rose-600 text-white text-[13px] font-bold flex items-center gap-1.5 border border-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300/70"
+              className="h-10 px-3 rounded-lg bg-rose-600 text-white text-[13px] font-bold flex items-center gap-1.5 border border-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300/70 whitespace-nowrap"
               aria-label="Emergency helpline 15 or 1122"
             >
-              <ShieldAlert className="w-4 h-4" />
+              <ShieldAlert className="w-4 h-4 shrink-0" />
               <span>15</span>
             </button>
 
@@ -279,9 +277,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 openAIAssistant();
               }}
-              className="w-full h-12 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 text-white text-[14px] font-bold flex items-center justify-center gap-2"
+              className="w-full h-12 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 text-white text-[14px] font-bold flex items-center justify-center gap-2 whitespace-nowrap"
             >
-              <Sparkles className="w-4 h-4 text-amber-300" />
+              <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
               <span>Ask AAGAHI AI</span>
             </button>
           </div>
