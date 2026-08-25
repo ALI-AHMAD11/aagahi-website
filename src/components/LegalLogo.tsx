@@ -19,33 +19,21 @@ export const LegalLogo: React.FC<LegalLogoProps> = ({
 
   return (
     <div className={`inline-flex items-center gap-3 select-none ${className}`}>
-      {/* Modern Minimalist Gavel + Tarazu (Scales of Justice) Crest */}
-      <div className={`relative ${iconDimensions} rounded-xl bg-gradient-to-br from-amber-800 via-amber-950 to-slate-950 p-0.5 border border-white/50 shadow-lg shadow-amber-950/60 flex items-center justify-center group overflow-hidden`}>
-        {/* Subtle radial backdrop */}
+      <div
+        className={`relative ${iconDimensions} rounded-xl bg-gradient-to-br from-amber-800 via-amber-950 to-slate-950 p-0.5 border border-white/50 shadow-lg shadow-amber-950/60 flex items-center justify-center group overflow-hidden`}
+      >
         <div className="absolute inset-0 bg-radial from-white/20 via-amber-400/10 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
-        
-        {/* Custom SVG combining Gavel + Scales of Justice */}
+
         <svg
           viewBox="0 0 48 48"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-full p-1 text-amber-300 transform group-hover:scale-105 transition-transform duration-300"
         >
-          {/* Central Pillar of Justice */}
           <line x1="24" y1="10" x2="24" y2="40" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-          
-          {/* Top Arch Finial */}
           <circle cx="24" cy="9" r="2.5" fill="currentColor" />
-          
-          {/* Balance Beam (Tarazu) */}
-          <path
-            d="M10 16C16 14.5 32 14.5 38 16"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
+          <path d="M10 16C16 14.5 32 14.5 38 16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
 
-          {/* Left Pan Chains & Bowl */}
           <line x1="12" y1="16" x2="8" y2="25" stroke="#fbbf24" strokeWidth="1.5" strokeLinecap="round" />
           <line x1="12" y1="16" x2="16" y2="25" stroke="#fbbf24" strokeWidth="1.5" strokeLinecap="round" />
           <path
@@ -57,7 +45,6 @@ export const LegalLogo: React.FC<LegalLogoProps> = ({
             strokeLinejoin="round"
           />
 
-          {/* Right Pan Chains & Bowl */}
           <line x1="36" y1="16" x2="32" y2="25" stroke="#fbbf24" strokeWidth="1.5" strokeLinecap="round" />
           <line x1="36" y1="16" x2="40" y2="25" stroke="#fbbf24" strokeWidth="1.5" strokeLinecap="round" />
           <path
@@ -69,7 +56,6 @@ export const LegalLogo: React.FC<LegalLogoProps> = ({
             strokeLinejoin="round"
           />
 
-          {/* Gavel Head Angled In Foreground / Center */}
           <rect
             x="20"
             y="29"
@@ -81,30 +67,10 @@ export const LegalLogo: React.FC<LegalLogoProps> = ({
             stroke="currentColor"
             strokeWidth="1.5"
           />
-          {/* Gavel Handle */}
-          <line
-            x1="26"
-            y1="31"
-            x2="38"
-            y2="38"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
+          <line x1="26" y1="31" x2="38" y2="38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
 
-          {/* Solid Base Stand */}
-          <path
-            d="M16 41H32"
-            stroke="#34d399"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-          <path
-            d="M19 38H29"
-            stroke="#fbbf24"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
+          <path d="M16 41H32" stroke="#fbbf24" strokeWidth="3" strokeLinecap="round" />
+          <path d="M19 38H29" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" />
         </svg>
       </div>
 
