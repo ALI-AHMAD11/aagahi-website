@@ -8,7 +8,6 @@ import {
   BookOpen,
   Scale,
   Users,
-  Bookmark,
 } from "lucide-react";
 import { Language, ViewTab } from "../types";
 import { UI_TRANSLATIONS } from "../data/translations";
@@ -55,17 +54,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Removed the last two nav items (Emergency and Dashboard/My Legal Hub)
   const navItems = [
     { id: "home" as ViewTab, label: t.navHome, icon: Scale },
     { id: "constitution" as ViewTab, label: t.navRights, icon: BookOpen },
     { id: "lawyers" as ViewTab, label: t.navLawyers, icon: Users },
-    { id: "emergency" as ViewTab, label: t.navEmergency, icon: ShieldAlert },
-    {
-      id: "dashboard" as ViewTab,
-      label: t.navDashboard,
-      icon: Bookmark,
-      badge: appointmentsCount > 0 ? appointmentsCount : undefined,
-    },
   ];
 
   return (
@@ -136,7 +129,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="hidden xl:inline">Search Laws</span>
             </button>
 
-            {/* Language Switcher (English / Urdu only) */}
+            {/* Language Switcher */}
             <div className="flex items-center h-11 p-1 rounded-xl bg-white/5 border border-amber-300/20 backdrop-blur-sm shrink-0">
               <button
                 onClick={() => setLanguage("en")}
@@ -162,7 +155,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             </div>
 
-            {/* AI Assistant Quick Trigger - Fixed with whitespace-nowrap */}
+            {/* AI Assistant Quick Trigger */}
             <button
               onClick={openAIAssistant}
               className="h-11 px-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white text-[13px] sm:text-[14px] font-bold flex items-center gap-2 shadow-lg shadow-sky-950/60 border border-sky-400/40 transition-all duration-200 hover:-translate-y-0.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 whitespace-nowrap shrink-0"
