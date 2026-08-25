@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — sophisticated legal-tech aesthetic */
-  --color-brand-navy: #0b1329;          /* Rich, deep indigo-slate background */
-  --color-brand-navy-light: #162238;    /* Lighter slate-blue card background */
-  --color-brand-slate: #243554;         /* Clean, defined border color */
-  --color-brand-offwhite: #f8f7f4;
-  --color-brand-gold: #d99b26;          /* Warm champagne/bronze gold */
-  --color-brand-gold-dark: #a87214;     /* Deep bronze gold hover state */
+  /* Brand palette — Warm Judicial Charcoal & Cream Aesthetic */
+  --color-brand-navy: #121214;          /* Deep luxury charcoal base */
+  --color-brand-navy-light: #1c1c24;    /* Elevated stone-charcoal card background */
+  --color-brand-slate: #2c2c38;         /* Crisp, defined border contrast */
+  --color-brand-offwhite: #f4f4f5;      /* Crisp modern off-white */
+  --color-brand-gold: #e6b333;          /* Refined champagne gold */
+  --color-brand-gold-dark: #b88a14;     /* Deep warm gold hover state */
   --color-brand-emergency: #e11d48;
 
   /* Typography scale */
@@ -17,7 +17,7 @@
   --font-size-card: 1.25rem;      
 
   /* Radius + spacing tokens */
-  --radius-card: 14px;
+  --radius-card: 16px;
   --radius-button: 10px;
 }
 
@@ -25,7 +25,7 @@
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     scroll-behavior: smooth;
-    background: linear-gradient(135deg, #070d1f 0%, #0b1329 50%, #080f22 100%);
+    background: radial-gradient(circle at 50% 0%, #1e1e28 0%, #121214 70%);
     color: var(--color-brand-offwhite);
     min-height: 100vh;
   }
@@ -53,7 +53,7 @@
 }
 .btn-primary {
   background-color: var(--color-brand-gold);
-  color: #070d1f;
+  color: #121214;
 }
 .btn-primary:hover {
   background-color: var(--color-brand-gold-dark);
@@ -61,34 +61,34 @@
   transform: translateY(-1px);
 }
 .btn-secondary {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--color-brand-slate);
   color: var(--color-brand-offwhite);
 }
 .btn-secondary:hover {
   border-color: var(--color-brand-gold);
+  background-color: rgba(230, 179, 51, 0.05);
 }
 
-/* Shared card base — luxurious frosted glass */
+/* Shared card base — distinct elevated stone-charcoal surface */
 .card {
   border-radius: var(--radius-card);
   padding: 28px;
-  background-color: rgba(22, 34, 56, 0.75);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(59, 130, 246, 0.15);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  background-color: #1a1a22;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.6);
   transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
 }
 .card:hover {
   transform: translateY(-3px);
-  border-color: rgba(217, 155, 38, 0.35); /* soft warm bronze border on hover */
-  box-shadow: 0 15px 35px -10px rgba(217, 155, 38, 0.12);
+  border-color: rgba(230, 179, 51, 0.35); /* elegant champagne gold border on hover */
+  box-shadow: 0 18px 45px -12px rgba(230, 179, 51, 0.15);
 }
 
 /* --- Animations --- */
 @keyframes subtle-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217, 155, 38, 0.4); }
-  50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(217, 155, 38, 0); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 179, 51, 0.4); }
+  50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(230, 179, 51, 0); }
 }
 .animate-subtle-pulse { animation: subtle-pulse 3s infinite ease-in-out; }
 
@@ -132,6 +132,6 @@
 ::-webkit-scrollbar-thumb {
   background: var(--color-brand-slate);
   border-radius: 4px;
-  border: 1px solid var(--color-brand-navy-light);
+  border: 1px solid #121214;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-brand-gold); }
