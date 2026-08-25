@@ -40,10 +40,10 @@ export const Footer: React.FC<FooterProps> = ({
     { label: "Emergency", tab: "emergency" },
   ];
   return (
-    <footer className="relative bg-[#0B1220] text-slate-300 border-t border-slate-800">
+    <footer className="relative bg-[#0B1220] text-slate-300 border-t border-[#482618]">
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-10 py-16 sm:py-20">
         {/* Legal disclaimer strip */}
-        <div className="rounded-xl bg-white/[0.04] border border-slate-800 px-5 py-4 sm:px-6 sm:py-5 mb-14">
+        <div className="rounded-xl bg-white/[0.04] border border-[#482618] px-5 py-4 sm:px-6 sm:py-5 mb-14">
           <div className="flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide text-amber-400 mb-1.5">
             <Scale className="w-4 h-4" />
             <span>{t.legalDisclaimerTitle}</span>
@@ -53,11 +53,11 @@ export const Footer: React.FC<FooterProps> = ({
           </p>
         </div>
         {/* Main grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-14 border-b border-slate-800">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-14 border-b border-[#482618]">
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-[#13213A] border border-slate-800 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg bg-[#13213A] border border-[#482618] flex items-center justify-center">
                 <Scale className="w-[18px] h-[18px] text-amber-400" />
               </div>
               <span className="font-bold text-[19px] tracking-tight text-white">AAGAHI</span>
@@ -148,7 +148,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3 text-sm text-slate-500">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-slate-800 shrink-0 relative">
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-[#482618] shrink-0 relative">
               <img
                 src={creatorPhoto}
                 alt="Ali Ahmad"
@@ -191,7 +191,7 @@ export const Footer: React.FC<FooterProps> = ({
               onClick={scrollToTop}
               aria-label="Back to top"
               title="Back to top"
-              className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/[0.04] border border-slate-800 text-slate-400 hover:text-white hover:bg-white/[0.08] transition-colors duration-200"
+              className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/[0.04] border border-[#482618] text-slate-400 hover:text-white hover:bg-white/[0.08] transition-colors duration-200"
             >
               <ArrowUp className="w-4 h-4" />
             </button>
