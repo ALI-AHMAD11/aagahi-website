@@ -1,16 +1,3 @@
-Confirmed — found it exactly where I expected. Your file has:
-
-```tsx
-const [page3SubTab, setPage3SubTab] = useState
-    "directory" | "faqs"
-  >("directory");
-```
-
-The `<` is missing after `useState`. It should be `useState<`. That's the entire bug — one missing character turned your typed generic into `useState` followed by a stray comparison/JSX-like expression, which is what broke everything at runtime.
-
-Here is your complete, corrected `App.tsx` — copy this whole thing and replace your file:
-
-```tsx
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Navbar } from "./components/Navbar";
@@ -1007,6 +994,4 @@ export default function App() {
     </div>
   );
 }
-```
 
-Replace your whole `App.tsx` with this, commit, and redeploy. The only change from what you pasted is that one line — `useState<` instead of `useState`.
