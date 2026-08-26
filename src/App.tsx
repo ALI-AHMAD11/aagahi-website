@@ -99,9 +99,9 @@ export default function App() {
     "rights"
   );
 
- const [page3SubTab, setPage3SubTab] = useState<"directory" | "faqs">(
-  "directory"
-);
+  const [page3SubTab, setPage3SubTab] = useState<"directory" | "faqs">(
+    "directory"
+  );
 
   const [solverQuery, setSolverQuery] = useState<string>("");
   const [presetLawyerCategory, setPresetLawyerCategory] =
@@ -186,14 +186,22 @@ export default function App() {
     );
   };
 
+  // Reliable scroll-to-destination: scrolls to the actual solver section
+  // element instead of a hardcoded pixel offset, and waits a tick so the
+  // "home" tab content has mounted first (in case we were on another tab).
+  const scrollToSolverSection = () => {
+    setTimeout(() => {
+      document.getElementById("solver-section")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 100);
+  };
+
   const handleHeroSearch = (query: string) => {
     setSolverQuery(query);
     setCurrentTab("home");
-
-    window.scrollTo({
-      top: 520,
-      behavior: "smooth",
-    });
+    scrollToSolverSection();
   };
 
   const handleOpenLawyerWithCategory = (category: string) => {
@@ -213,11 +221,7 @@ export default function App() {
   const navigateToTab = (tab: ViewTab) => {
     if (tab === "solver") {
       setCurrentTab("home");
-
-      window.scrollTo({
-        top: 520,
-        behavior: "smooth",
-      });
+      scrollToSolverSection();
     } else if (tab === "guides") {
       setCurrentTab("constitution");
       setPage2SubTab("guides");
@@ -340,11 +344,7 @@ export default function App() {
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
                       setCurrentTab("home");
-
-                      window.scrollTo({
-                        top: 560,
-                        behavior: "smooth",
-                      });
+                      scrollToSolverSection();
                     }}
                     className={`bg-slate-900/90 rounded-2xl ${BORDER} hover:border-[#482618] p-5 shadow-lg flex flex-col justify-between cursor-pointer group transition-all`}
                   >
@@ -994,4 +994,3 @@ export default function App() {
     </div>
   );
 }
-
