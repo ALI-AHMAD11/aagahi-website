@@ -99,9 +99,9 @@ export default function App() {
     "rights"
   );
 
-  const [page3SubTab, setPage3SubTab] = useState
-    "directory" | "faqs"
-  >("directory");
+ const [page3SubTab, setPage3SubTab] = useState<"directory" | "faqs">(
+  "directory"
+);
 
   const [solverQuery, setSolverQuery] = useState<string>("");
   const [presetLawyerCategory, setPresetLawyerCategory] =
